@@ -19,7 +19,7 @@
 |   GND   |   GND   |
 
 ## Uart protocol:
-- Bard rate: 921600
+- Bard rate: 115200
 - Data bit: 8
 - Stop bit: 1
 - Parity: None

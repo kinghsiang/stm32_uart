@@ -39,8 +39,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
-#include "main.h"
-extern uint8_t rxData;
+#include "stm32f4xx_hal.h"
 extern UART_HandleTypeDef huart2;
 /** @addtogroup STM32F4xx_HAL_Examples
   * @{
@@ -160,17 +159,6 @@ void SysTick_Handler(void)
   HAL_SYSTICK_IRQHandler();
 }
 
-void USART2_IRQHandler(void)
-{
-  /* USER CODE BEGIN USART2_IRQn 0 */
-
-  /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
-  /* USER CODE BEGIN USART2_IRQn 1 */
-  HAL_UART_Receive_IT(&huart2, &rxData, 1);
-  /* USER CODE END USART2_IRQn 1 */
-}
-
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */
@@ -186,6 +174,12 @@ void USART2_IRQHandler(void)
 /*void PPP_IRQHandler(void)
 {
 }*/
+
+
+void USART2_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart2);
+}
 
 /**
   * @}

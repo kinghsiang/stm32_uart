@@ -19,11 +19,20 @@
 |   GND   |   GND   |
 
 ## Uart protocol:
-- Bard rate: 115200
+- Bard rate: 921600
 - Data bit: 8
 - Stop bit: 1
 - Parity: None
 
 ## Uart rx demo:
+Show the specific word.
+
 ![uart rx demo](demo/rx_pd56.png)
 
+## Uart interrupt demo:
+Loop counter: 500 ms/per
+
+Rx counter: counter input characters, max (8 char)
+
+
+![uart interrupt demo](demo/interrupt.png)

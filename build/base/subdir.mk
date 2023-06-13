@@ -3,8 +3,7 @@ C_SRCS += \
 	../base/syscalls.c \
 	../base/stm32f4xx_hal_msp.c \
 	../base/stm32f4xx_it.c \
-	../base/system_stm32f4xx.c \
-	../base/uart.c
+	../base/system_stm32f4xx.c 
 
 # Each subdirectory must supply rules for building sources it contributes
 base/%.o: ../base/%.c

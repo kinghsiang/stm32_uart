@@ -85,6 +85,25 @@ void HAL_PPP_MspDeInit(void)
 
 }
 
+ void HAL_UART_MspInit(UART_HandleTypeDef *huart)
+{
+  if(huart->Instance == USART2)
+  {
+    __HAL_RCC_GPIOD_CLK_ENABLE(); /* Enable clock to PORTD - UART2 pins PD5 and PD6 */
+    __HAL_RCC_USART2_CLK_ENABLE(); /* Enable clock to UART2 module */
+
+    GPIO_InitTypeDef UART2_GPIO_Handler; /*Create GPIO_InitTypeDef struct instance */
+    UART2_GPIO_Handler.Pin = GPIO_PIN_5 | GPIO_PIN_6;
+    UART2_GPIO_Handler.Mode = GPIO_MODE_AF_PP;
+    UART2_GPIO_Handler.Pull = GPIO_PULLUP;
+    UART2_GPIO_Handler.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    UART2_GPIO_Handler.Alternate = GPIO_AF7_USART2;
+    HAL_GPIO_Init(GPIOD, &UART2_GPIO_Handler);
+    HAL_NVIC_SetPriority(USART2_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(USART2_IRQn);
+  }
+}
+
 /**
   * @}
   */

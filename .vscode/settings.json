@@ -7,7 +7,6 @@
         "stm32f4xx.h": "c",
         "stm32f4xx_hal_gpio.h": "c",
         "stm32f429xx.h": "c",
-        "stdio.h": "c",
-        "stm32f4xx_it.h": "c"
+        "stdio.h": "c"
     }
 }
